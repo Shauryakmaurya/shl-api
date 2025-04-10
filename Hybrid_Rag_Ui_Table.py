@@ -36,8 +36,10 @@ for entry in shl_data:
 
 # Embed with MPNet
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/all-mpnet-base-v2")
-model = AutoModel.from_pretrained("sentence-transformers/all-mpnet-base-v2").to(device)
+tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/paraphrase-MiniLM-L6-v2")
+model = AutoModel.from_pretrained("sentence-transformers/paraphrase-MiniLM-L6-v2").to(device)
+
+
 
 def embed(texts):
     inputs = tokenizer(texts, padding=True, truncation=True, return_tensors="pt").to(device)
